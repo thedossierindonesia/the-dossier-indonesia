@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Dossier Indonesia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF8F4;
+      --cream-dark: #F2EFE8;
+      --gold: #B8924A;
+      --gold-light: #C9A96E;
+      --gold-pale: #EDE0C8;
+      --black: #1A1A18;
+      --charcoal: #2C2C2A;
+      --mid: #6B6B68;
+      --light: #9E9E9A;
+      --divider: #DDD9D0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ─── TICKER ─── */
+    .ticker {
+      background: var(--black);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      overflow: hidden;
+      height: 28px;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-track {
+      display: flex;
+      white-space: nowrap;
+      animation: ticker 40s linear infinite;
+    }
+    .ticker-track span {
+      padding: 0 40px;
+      border-right: 1px solid rgba(200,169,110,0.3);
+    }
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--cream);
+      border-bottom: 1px solid var(--divider);
+    }
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+    }
+    .header-nav-left, .header-nav-right {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .header-nav-left a, .header-nav-right a {
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .header-nav-left a:hover, .header-nav-right a:hover { color: var(--gold); }
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .logo-d {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .logo-sub {
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 2px;
+    }
+    .header-bottom {
+      border-top: 1px solid var(--divider);
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      padding: 0 40px;
+      height: 36px;
+      align-items: center;
+    }
+    .header-bottom a {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .header-bottom a:hover { color: var(--black); }
+    .header-bottom a.active {
+      color: var(--black);
+      border-bottom: 1.5px solid var(--gold);
+      padding-bottom: 1px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      border-bottom: 1px solid var(--divider);
+    }
+    .hero-left {
+      padding: 64px 56px 64px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--divider);
+    }
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-issue {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-meta-sep { width: 32px; height: 1px; background: var(--gold); }
+    .hero-date {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      text-transform: uppercase;
+    }
+    .hero-category-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid var(--black);
+      padding: 4px 10px;
+      margin-bottom: 24px;
+      color: var(--black);
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 62px;
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      margin-bottom: 28px;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-deck {
+      font-family: 'EB Garamond', serif;
+      font-size: 19px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      max-width: 500px;
+      margin-bottom: 40px;
+    }
+    .hero-byline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid var(--divider);
+    }
+    .byline-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--gold-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      color: var(--gold);
+      font-style: italic;
+    }
+    .byline-name { font-size: 12px; font-weight: 600; color: var(--black); }
+    .byline-role { font-size: 10.5px; color: var(--mid); }
+    .hero-read-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 32px;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      transition: color 0.2s;
+    }
+    .hero-read-btn:hover { color: var(--gold); }
+    .btn-arrow {
+      width: 36px; height: 1px;
+      background: currentColor;
+      position: relative;
+      transition: width 0.3s;
+    }
+    .hero-read-btn:hover .btn-arrow { width: 52px; }
+    .btn-arrow::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -3px;
+      width: 6px; height: 6px;
+      border-right: 1.5px solid currentColor;
+      border-top: 1.5px solid currentColor;
+      transform: rotate(45deg);
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+    .hero-visual-art {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 48px;
+      position: relative;
+    }
+    .color-art {
+      position: absolute;
+      inset: 0;
+    }
+    .color-strip { position: absolute; width: 100%; }
+    .color-strip:nth-child(1) { background: #1A1A18; height: 20%; top: 0; }
+    .color-strip:nth-child(2) { background: #2E2926; height: 18%; top: 20%; }
+    .color-strip:nth-child(3) { background: #4A4540; height: 16%; top: 38%; }
+    .color-strip:nth-child(4) { background: #6B6258; height: 14%; top: 54%; }
+    .color-strip:nth-child(5) { background: #8B8078; height: 12%; top: 68%; }
+    .color-strip:nth-child(6) { background: #B8924A; height: 10%; top: 80%; }
+    .color-strip:nth-child(7) { background: #C9A96E; height: 10%; top: 90%; }
+    .hero-number {
+      position: absolute;
+      top: 40px; right: 48px;
+      font-family: 'Playfair Display', serif;
+      font-size: 140px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      user-select: none;
+    }
+    .hero-visual-caption { position: relative; z-index: 2; }
+    .vc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .vc-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: white;
+      max-width: 320px;
+    }
+
+    /* ─── MARQUEE ─── */
+    .marquee-strip {
+      background: var(--gold);
+      overflow: hidden;
+      height: 36px;
+      display: flex;
+      align-items: center;
+    }
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track span {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 0 28px;
+    }
+    .marquee-track .sep { color: rgba(0,0,0,0.3); padding: 0 4px; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 48px 40px 24px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .section-label { display: flex; align-items: center; gap: 14px; }
+    .section-label-line { width: 28px; height: 1.5px; background: var(--gold); }
+    .section-label-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 400;
+      color: var(--black);
+      margin-top: 8px;
+    }
+    .section-see-all {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      padding-bottom: 2px;
+    }
+    .section-see-all:hover { color: var(--black); }
+    .section-see-all::after { content: '→'; }
+
+    /* ─── INTELLIGENCE GRID ─── */
+    .intel-section { border-bottom: 1px solid var(--divider); }
+    .intel-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      border-top: 1px solid var(--divider);
+    }
+    .intel-card {
+      padding: 36px 40px;
+      border-right: 1px solid var(--divider);
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .intel-card:last-child { border-right: none; }
+    .intel-card:hover { background: var(--cream-dark); }
+    .intel-card-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .intel-card-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 68px;
+      font-weight: 400;
+      color: var(--divider);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .intel-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .intel-card-desc { font-size: 13px; line-height: 1.7; color: var(--mid); }
+    .intel-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--divider);
+    }
+    .intel-card-author { font-size: 10.5px; color: var(--light); }
+    .intel-card-link { font-size: 9px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+
+    /* ─── FEATURED STRIP ─── */
+    .featured-strip {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      border-bottom: 1px solid var(--divider);
+      min-height: 480px;
+    }
+    .featured-content {
+      padding: 56px 56px 56px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid var(--divider);
+    }
+    .featured-label { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
+    .featured-tag {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--cream);
+      padding: 4px 10px;
+    }
+    .featured-vol { font-size: 10px; letter-spacing: 0.1em; color: var(--mid); text-transform: uppercase; }
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .featured-title em { font-style: italic; color: var(--gold); }
+    .featured-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--charcoal);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+    .featured-meta { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .meta-pill { display: flex; align-items: center; gap: 6px; font-size: 10.5px; color: var(--mid); }
+    .meta-pill-dot { width: 3px; height: 3px; border-radius: 50%; background: var(--gold); }
+    .featured-cta {
+      margin-top: 36px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    .featured-cta-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--black);
+      transition: color 0.2s;
+    }
+    .featured-cta-bar {
+      width: 40px;
+      height: 1.5px;
+      background: var(--black);
+      position: relative;
+      transition: width 0.3s, background 0.2s;
+    }
+    .featured-cta-bar::after {
+      content: '';
+      position: absolute;
+      right: 0; top: -3.5px;
+      width: 8px; height: 8px;
+      border-right: 1.5px solid var(--black);
+      border-top: 1.5px solid var(--black);
+      transform: rotate(45deg);
+      transition: border-color 0.2s;
+    }
+    .featured-cta:hover .featured-cta-text { color: var(--gold); }
+    .featured-cta:hover .featured-cta-bar { width: 56px; background: var(--gold); }
+    .featured-cta:hover .featured-cta-bar::after { border-color: var(--gold); }
+
+    .featured-sidebar { padding: 40px 36px; display: flex; flex-direction: column; }
+    .sidebar-visual {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+      min-height: 220px;
+    }
+    .sidebar-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: absolute;
+      inset: 0;
+    }
+    .swatch-1 { background: #1A1A18; }
+    .swatch-2 { background: #2E2926; }
+    .swatch-3 { background: #4A4540; }
+    .swatch-4 { background: #6B6258; }
+    .swatch-5 { background: #B8924A; }
+    .swatch-6 { background: #C9A96E; }
+    .swatch2-1 { background: #1A1A18; }
+    .swatch2-2 { background: #2D2B3A; }
+    .swatch2-3 { background: #4A3F5C; }
+    .swatch2-4 { background: #7B6FA0; }
+    .swatch2-5 { background: #B8924A; }
+    .swatch2-6 { background: #E8D5B5; }
+    .sidebar-visual-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, transparent 60%);
+    }
+    .svo-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .svo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-style: italic;
+      color: white;
+      line-height: 1.4;
+    }
+    .sidebar-findings { border-top: 1px solid var(--divider); padding-top: 20px; }
+    .sf-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .sf-item { display: flex; gap: 10px; margin-bottom: 10px; }
+    .sf-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--gold);
+      min-width: 16px;
+      padding-top: 1px;
+    }
+    .sf-text { font-size: 11.5px; line-height: 1.55; color: var(--charcoal); }
+
+    /* ─── EDITORIAL COLUMNS ─── */
+    .editorial-section { border-bottom: 1px solid var(--divider); }
+    .editorial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--divider);
+    }
+    .editorial-col {
+      padding: 40px;
+      border-right: 1px solid var(--divider);
+    }
+    .editorial-col:last-child { border-right: none; }
+    .ec-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ec-tag::before { content: ''; width: 14px; height: 1px; background: var(--gold); }
+    .ec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+    .ec-body { font-size: 13px; line-height: 1.75; color: var(--mid); margin-bottom: 18px; }
+    .ec-quote {
+      font-family: 'EB Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--charcoal);
+      padding-left: 14px;
+      border-left: 2px solid var(--gold);
+    }
+
+    /* ─── MANIFESTO BAND ─── */
+    .manifesto-band {
+      background: var(--black);
+      padding: 80px 40px;
+      text-align: center;
+      border-bottom: 1px solid #2a2a28;
+    }
+    .manifesto-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+    .manifesto-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.35;
+      color: white;
+      max-width: 780px;
+      margin: 0 auto 28px;
+    }
+    .manifesto-body {
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.5);
+      max-width: 520px;
+      margin: 0 auto 44px;
+    }
+    .manifesto-services {
+      display: flex;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .ms-item {
+      flex: 1;
+      padding: 20px 16px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+    }
+    .ms-item:last-child { border-right: none; }
+    .ms-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .ms-label {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      display: block;
+    }
+
+    /* ─── METHODOLOGY ─── */
+    .methodology-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--divider);
+    }
+    .method-left {
+      padding: 60px 56px 60px 40px;
+      border-right: 1px solid var(--divider);
+    }
+    .method-right {
+      padding: 60px 40px 60px 56px;
+      background: var(--cream-dark);
+    }
+    .method-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .method-eyebrow::before { content: ''; width: 22px; height: 1px; background: var(--gold); }
+    .method-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .method-body { font-size: 14px; line-height: 1.8; color: var(--charcoal); margin-bottom: 32px; }
+    .method-phases { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .phase-card { padding: 18px; border: 1px solid var(--divider); background: white; }
+    .phase-num {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 7px;
+    }
+    .phase-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .phase-desc { font-size: 11.5px; line-height: 1.6; color: var(--mid); }
+    .method-right-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 22px;
+    }
+    .industry-tag-cloud { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .itag {
+      font-size: 10.5px;
+      font-weight: 500;
+      padding: 5px 12px;
+      border: 1px solid var(--divider);
+      color: var(--charcoal);
+      background: white;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .itag:hover { border-color: var(--gold); color: var(--gold); }
+    .itag.active { background: var(--black); color: var(--gold); border-color: var(--black); }
+    .method-quote {
+      padding: 22px;
+      border-left: 3px solid var(--gold);
+      background: white;
+    }
+    .method-quote p {
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--charcoal);
+      margin-bottom: 10px;
+    }
+    .method-quote cite { font-size: 10.5px; font-style: normal; font-weight: 500; color: var(--mid); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--black); color: white; }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      padding: 60px 40px 44px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      gap: 0;
+    }
+    .footer-brand { padding-right: 48px; border-right: 1px solid rgba(255,255,255,0.07); }
+    .footer-logo-d {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: white;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .footer-logo-name {
+      font-size: 8.5px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .footer-tagline {
+      font-family: 'EB Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 24px;
+    }
+    .footer-email { font-size: 11px; font-weight: 500; color: var(--gold-light); text-decoration: none; }
+    .footer-col { padding: 0 32px; }
+    .footer-col-title {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 12px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 40px;
+    }
+    .footer-copy { font-size: 10.5px; color: rgba(255,255,255,0.22); }
+    .footer-atelier { font-size: 10.5px; color: rgba(255,255,255,0.22); }
+    .footer-atelier a { color: var(--gold); text-decoration: none; }
+
+    /* ─── ARTICLE OVERLAY ─── */
+    .article-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .article-overlay.active { pointer-events: all; opacity: 1; }
+    .overlay-bg {
+      position: absolute;
+      inset: 0;
+      background: rgba(20,20,18,0.72);
+      backdrop-filter: blur(4px);
+    }
+    .article-panel {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 94vh;
+      background: var(--cream);
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .article-overlay.active .article-panel { transform: translateY(0); }
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 58px;
+      border-bottom: 1px solid var(--divider);
+      background: var(--cream);
+      flex-shrink: 0;
+    }
+    .panel-header-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .panel-header-logo span { color: var(--gold); }
+    .panel-meta-top { font-size: 10.5px; color: var(--light); letter-spacing: 0.06em; display: flex; align-items: center; gap: 16px; }
+    .panel-close {
+      width: 34px; height: 34px;
+      border: 1px solid var(--divider);
+      background: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .panel-close:hover { border-color: var(--black); background: var(--black); color: white; }
+    .panel-close svg { width: 13px; height: 13px; }
+    .panel-body { flex: 1; overflow-y: auto; }
+    .panel-body::-webkit-scrollbar { width: 3px; }
+    .panel-body::-webkit-scrollbar-thumb { background: var(--gold); }
+
+    /* ARTICLE CONTENT */
+    .article-container { max-width: 800px; margin: 0 auto; padding: 60px 40px 96px; }
+    .article-header { margin-bottom: 44px; }
+    .ah-category {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .ah-category::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+    .ah-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 18px;
+    }
+    .ah-subtitle {
+      font-family: 'EB Garamond', serif;
+      font-size: 20px;
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--charcoal);
+      margin-bottom: 28px;
+    }
+    .ah-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      flex-wrap: wrap;
+    }
+    .ahm-author { font-size: 12px; font-weight: 600; color: var(--black); }
+    .ahm-sep { width: 1px; height: 14px; background: var(--divider); }
+    .ahm-detail { font-size: 11px; color: var(--mid); }
+    .ahm-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border: 1px solid var(--divider);
+      color: var(--mid);
+    }
+
+    .article-section { margin-bottom: 48px; }
+    .as-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .as-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: var(--black);
+      margin-bottom: 20px;
+    }
+    .as-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 18px;
+      line-height: 1.8;
+      color: var(--charcoal);
+    }
+    .as-body p { margin-bottom: 1em; }
+    .as-divider { width: 44px; height: 1.5px; background: var(--gold); margin: 32px 0; }
+
+    .finding-block {
+      margin: 32px 0;
+      padding: 26px 28px;
+      border-left: 3px solid var(--gold);
+      background: white;
+    }
+    .fb-heading {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .fb-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .fb-body {
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--charcoal);
+    }
+
+    .article-quote { margin: 28px 0; padding: 0 0 0 24px; border-left: 2.5px solid var(--gold); }
+    .article-quote blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+    .article-quote cite { font-size: 10.5px; font-style: normal; font-weight: 500; color: var(--mid); letter-spacing: 0.06em; }
+
+    .gap-list { margin: 18px 0; list-style: none; }
+    .gap-list li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-family: 'EB Garamond', serif;
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--charcoal);
+    }
+    .gl-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--gold);
+      min-width: 18px;
+      padding-top: 2px;
+    }
+
+    .implication-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+    .impl-card { padding: 20px 22px; border: 1px solid var(--divider); }
+    .impl-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--gold-pale);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .impl-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--black); margin-bottom: 7px; }
+    .impl-body { font-size: 12.5px; line-height: 1.65; color: var(--mid); }
+
+    .article-footer-credit {
+      margin-top: 56px;
+      padding: 24px;
+      background: var(--cream-dark);
+      border: 1px solid var(--divider);
+    }
+    .afc-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .afc-text { font-size: 12.5px; line-height: 1.7; color: var(--mid); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 320px; }
+      .hero-title { font-size: 42px; }
+      .header-top { padding: 0 20px; }
+      .header-nav-left, .header-nav-right { gap: 16px; }
+      .intel-grid { grid-template-columns: 1fr; }
+      .intel-card { border-right: none; border-bottom: 1px solid var(--divider); }
+      .featured-strip { grid-template-columns: 1fr; }
+      .featured-sidebar { display: none; }
+      .editorial-grid { grid-template-columns: 1fr; }
+      .editorial-col { border-right: none; border-bottom: 1px solid var(--divider); }
+      .methodology-section { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { border-right: none; padding-right: 0; }
+      .article-panel { height: 98vh; }
+      .ah-title { font-size: 36px; }
+      .implication-grid { grid-template-columns: 1fr; }
+      .manifesto-text { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span>Cultural Intelligence &amp; Research Lab</span>
+    <span>Fashion · Lifestyle · Kreatif</span>
+    <span>Indonesia → ASEAN</span>
+    <span>Riset Akademis × Strategi Industri</span>
+    <span>Volume I · 2025–2026</span>
+    <span>The Dossier Indonesia</span>
+    <span>Dari Ruang Riset, Untuk Industri</span>
+    <span>Cultural Intelligence &amp; Research Lab</span>
+    <span>Fashion · Lifestyle · Kreatif</span>
+    <span>Indonesia → ASEAN</span>
+    <span>Riset Akademis × Strategi Industri</span>
+    <span>Volume I · 2025–2026</span>
+    <span>The Dossier Indonesia</span>
+    <span>Dari Ruang Riset, Untuk Industri</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <nav class="header-nav-left">
+      <a href="#">Intelligence</a>
+      <a href="#">Consumer</a>
+      <a href="#">Brand</a>
+    </nav>
+    <a href="#" class="logo-block">
+      <span class="logo-d">d.</span>
+      <span class="logo-sub">The Dossier Indonesia</span>
+    </a>
+    <nav class="header-nav-right">
+      <a href="#">Culture</a>
+      <a href="#">Education</a>
+      <a href="#">Subscribe</a>
+    </nav>
+  </div>
+  <div class="header-bottom">
+    <a href="#" class="active">Semua</a>
+    <a href="#">Consumer Intelligence</a>
+    <a href="#">Brand Strategy</a>
+    <a href="#">Trend Analysis</a>
+    <a href="#">Color &amp; Identity</a>
+    <a href="#">Sustainability</a>
+    <a href="#">Digital Commerce</a>
+    <a href="#">Education</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div>
+      <div class="hero-meta">
+        <span class="hero-issue">Volume I · 2 Artikel</span>
+        <div class="hero-meta-sep"></div>
+        <span class="hero-date">2025 · Edisi Perdana</span>
+      </div>
+      <div class="hero-category-tag">Consumer Psychology</div>
+      <h1 class="hero-title">Warna<br>Bukan<br>Soal <em>Tren</em></h1>
+      <p class="hero-deck">Mengapa perempuan milenial Jakarta memilih warna bukan dari runway, tapi dari dalam diri mereka sendiri — dan apa artinya bagi brand fashion lokal Indonesia.</p>
+    </div>
+    <div>
+      <div class="hero-byline">
+        <div class="byline-avatar">M</div>
+        <div>
+          <div class="byline-name">Madeline Gabriella</div>
+          <div class="byline-role">Fashion Merchandising Researcher · LaSalle Jakarta, 2022</div>
+        </div>
+      </div>
+      <button class="hero-read-btn" onclick="openArticle(1)">
+        Baca Artikel Lengkap
+        <span class="btn-arrow"></span>
+      </button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual-art">
+      <div class="color-art">
+        <div class="color-strip"></div>
+        <div class="color-strip"></div>
+        <div class="color-strip"></div>
+        <div class="color-strip"></div>
+        <div class="color-strip"></div>
+        <div class="color-strip"></div>
+        <div class="color-strip"></div>
+      </div>
+      <div class="hero-number">01</div>
+      <div class="hero-visual-caption">
+        <div class="vc-tag">Color Intelligence · Bali × Jakarta</div>
+        <div class="vc-title">Arus the Brand — Studi Kasus Palet Netral</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Consumer Psychology</span><span class="sep">·</span>
+    <span>Brand Strategy</span><span class="sep">·</span>
+    <span>Color Intelligence</span><span class="sep">·</span>
+    <span>Cultural Insight</span><span class="sep">·</span>
+    <span>Millennial Behavior</span><span class="sep">·</span>
+    <span>Retail Strategy</span><span class="sep">·</span>
+    <span>Fashion Education</span><span class="sep">·</span>
+    <span>Identity Design</span><span class="sep">·</span>
+    <span>Gen Z</span><span class="sep">·</span>
+    <span>TikTok Strategy</span><span class="sep">·</span>
+    <span>Luxury Digital</span><span class="sep">·</span>
+    <span>Consumer Psychology</span><span class="sep">·</span>
+    <span>Brand Strategy</span><span class="sep">·</span>
+    <span>Color Intelligence</span><span class="sep">·</span>
+    <span>Cultural Insight</span><span class="sep">·</span>
+    <span>Millennial Behavior</span><span class="sep">·</span>
+    <span>Retail Strategy</span><span class="sep">·</span>
+    <span>Fashion Education</span><span class="sep">·</span>
+    <span>Identity Design</span><span class="sep">·</span>
+    <span>Gen Z</span><span class="sep">·</span>
+    <span>TikTok Strategy</span><span class="sep">·</span>
+    <span>Luxury Digital</span><span class="sep">·</span>
+  </div>
+</div>
+
+<!-- KEY FINDINGS -->
+<div class="intel-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Intelligence Report</span>
+      </div>
+      <h2 class="section-title">Temuan Utama</h2>
+    </div>
+    <a href="#" class="section-see-all">Lihat Semua Riset</a>
+  </div>
+  <div class="intel-grid">
+    <div class="intel-card" onclick="openArticle(1)">
+      <div class="intel-card-tag">Consumer Psychology · Color Theory</div>
+      <div class="intel-card-num">01</div>
+      <div class="intel-card-title">Kulit sebagai filter paling jujur dalam pemilihan warna pakaian</div>
+      <div class="intel-card-desc">Semua partisipan memiliki sistem evaluasi warna yang berbasis langsung pada bagaimana warna berinteraksi dengan tone kulit — jauh lebih kuat dari tren apapun yang sedang berjalan di runway.</div>
+      <div class="intel-card-footer">
+        <span class="intel-card-author">Madeline Gabriella · LaSalle Jakarta</span>
+        <span class="intel-card-link">Baca →</span>
+      </div>
+    </div>
+    <div class="intel-card" onclick="openArticle(2)">
+      <div class="intel-card-tag">Digital Strategy · Luxury Branding · Gen Z</div>
+      <div class="intel-card-num">02</div>
+      <div class="intel-card-title">TikTok membentuk persepsi brand luxury — tapi belum tentu menghasilkan loyalitas</div>
+      <div class="intel-card-desc">Gen Z Jakarta mengagumi Jacquemus lewat konten TikTok yang playful dan surreal. Tapi koneksi emosional mereka berhenti di permukaan — hiburan, bukan pembelian.</div>
+      <div class="intel-card-footer">
+        <span class="intel-card-author">Samantha Keira Sahuri · LaSalle Jakarta</span>
+        <span class="intel-card-link">Baca →</span>
+      </div>
+    </div>
+    <div class="intel-card" onclick="openArticle(2)">
+      <div class="intel-card-tag">Semiotics · Short-Form Content</div>
+      <div class="intel-card-num">03</div>
+      <div class="intel-card-title">Dual audio strategy: viral sounds untuk reach, French tracks untuk brand depth</div>
+      <div class="intel-card-desc">Jacquemus memainkan dua lapis strategi audio di TikTok — satu untuk algoritma, satu untuk identitas. Gen Z bisa membedakannya secara tidak sadar.</div>
+      <div class="intel-card-footer">
+        <span class="intel-card-author">2025 · 7 In-depth Interviews + Expert</span>
+        <span class="intel-card-link">Baca →</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED ARTICLE -->
+<div class="featured-strip">
+  <div class="featured-content">
+    <div>
+      <div class="featured-label">
+        <span class="featured-tag">Featured Article</span>
+        <span class="featured-vol">Volume I — Edisi Perdana 2025</span>
+      </div>
+      <h2 class="featured-title">Warna Bukan<br>Soal <em>Tren</em></h2>
+      <p class="featured-subtitle">Mengapa perempuan milenial Jakarta memilih warna bukan dari runway, tapi dari dalam diri mereka sendiri — dan apa artinya bagi brand fashion lokal yang sedang membangun loyalitas konsumen jangka panjang.</p>
+      <div class="featured-meta">
+        <div class="meta-pill"><div class="meta-pill-dot"></div>Madeline Gabriella</div>
+        <div class="meta-pill"><div class="meta-pill-dot"></div>Consumer Psychology</div>
+        <div class="meta-pill"><div class="meta-pill-dot"></div>8 Narasumber</div>
+        <div class="meta-pill"><div class="meta-pill-dot"></div>Arus the Brand · Bali</div>
+      </div>
+    </div>
+    <button class="featured-cta" onclick="openArticle(1)">
+      <span class="featured-cta-text">Baca Artikel Lengkap</span>
+      <span class="featured-cta-bar"></span>
+    </button>
+  </div>
+  <div class="featured-sidebar">
+    <div class="sidebar-visual">
+      <div class="sidebar-swatch-grid">
+        <div class="swatch-1"></div>
+        <div class="swatch-2"></div>
+        <div class="swatch-3"></div>
+        <div class="swatch-4"></div>
+        <div class="swatch-5"></div>
+        <div class="swatch-6"></div>
+      </div>
+      <div class="sidebar-visual-overlay">
+        <div class="svo-label">Color Palette · Arus the Brand</div>
+        <div class="svo-text">"Hitam adalah yang paling laris — paling netral, paling versatil"</div>
+      </div>
+    </div>
+    <div class="sidebar-findings">
+      <div class="sf-label">6 Temuan Riset</div>
+      <div class="sf-item"><span class="sf-num">i.</span><span class="sf-text">Budaya memberi kosakata awal tentang warna</span></div>
+      <div class="sf-item"><span class="sf-num">ii.</span><span class="sf-text">Kulit adalah filter paling jujur</span></div>
+      <div class="sf-item"><span class="sf-num">iii.</span><span class="sf-text">Warna sebagai alat psikologis</span></div>
+      <div class="sf-item"><span class="sf-num">iv.</span><span class="sf-text">Tren itu menu, bukan resep</span></div>
+      <div class="sf-item"><span class="sf-num">v.</span><span class="sf-text">Tempat &amp; situasi menentukan warna</span></div>
+      <div class="sf-item"><span class="sf-num">vi.</span><span class="sf-text">Netral bukan kompromi — itu fondasi</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURED ARTICLE 02 -->
+<div class="featured-strip">
+  <div class="featured-content">
+    <div>
+      <div class="featured-label">
+        <span class="featured-tag">Latest Article</span>
+        <span class="featured-vol">Volume I — Artikel 02</span>
+      </div>
+      <h2 class="featured-title">Kenapa Gen Z Suka Nonton<br>Jacquemus di <em>TikTok</em></h2>
+      <p class="featured-subtitle">Short-form storytelling membangun admiration, tapi format 15 detik punya batas — koneksi emosional tetap dangkal dan konversi masih jadi mimpi.</p>
+      <div class="featured-meta">
+        <div class="meta-pill"><div class="meta-pill-dot"></div>Samantha Keira Sahuri</div>
+        <div class="meta-pill"><div class="meta-pill-dot"></div>Digital Strategy</div>
+        <div class="meta-pill"><div class="meta-pill-dot"></div>7 Narasumber</div>
+        <div class="meta-pill"><div class="meta-pill-dot"></div>Jacquemus · La Croisière 2025</div>
+      </div>
+    </div>
+    <button class="featured-cta" onclick="openArticle(2)">
+      <span class="featured-cta-text">Baca Artikel Lengkap</span>
+      <span class="featured-cta-bar"></span>
+    </button>
+  </div>
+  <div class="featured-sidebar">
+    <div class="sidebar-visual">
+      <div class="sidebar-swatch-grid">
+        <div class="swatch2-1"></div>
+        <div class="swatch2-2"></div>
+        <div class="swatch2-3"></div>
+        <div class="swatch2-4"></div>
+        <div class="swatch2-5"></div>
+        <div class="swatch2-6"></div>
+      </div>
+      <div class="sidebar-visual-overlay">
+        <div class="svo-label">Konten TikTok Jacquemus · La Croisière 2025</div>
+        <div class="svo-text">"TikTok adalah entry point — bukan loyalty builder"</div>
+      </div>
+    </div>
+    <div class="sidebar-findings">
+      <div class="sf-label">5 Temuan Riset</div>
+      <div class="sf-item"><span class="sf-num">i.</span><span class="sf-text">Entertainment dulu, brand kedua</span></div>
+      <div class="sf-item"><span class="sf-num">ii.</span><span class="sf-text">Koneksi emosional ada tapi dangkal</span></div>
+      <div class="sf-item"><span class="sf-num">iii.</span><span class="sf-text">Semiotika bekerja secara bawah sadar</span></div>
+      <div class="sf-item"><span class="sf-num">iv.</span><span class="sf-text">Aspirational tapi belum actionable</span></div>
+      <div class="sf-item"><span class="sf-num">v.</span><span class="sf-text">Resonansi terbatas pada niche</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- EDITORIAL COLUMNS -->
+<div class="editorial-section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Editorial Perspectives</span>
+      </div>
+      <h2 class="section-title">Sudut Pandang Industri</h2>
+    </div>
+  </div>
+  <div class="editorial-grid">
+    <div class="editorial-col">
+      <div class="ec-tag">Brand Strategy</div>
+      <h3 class="ec-title">Berhenti berpikir bahwa tren adalah keputusan</h3>
+      <p class="ec-body">Tren hanyalah pintu masuk. Konsumen milenial Jakarta melihat tren, mempertimbangkannya, lalu menjalankan seleksi personal yang jauh lebih kompleks sebelum akhirnya membeli.</p>
+      <blockquote class="ec-quote">Brand yang hanya berbicara "ini sedang tren" akan selalu kalah dengan brand yang bisa menjawab "ini cocok dengan siapa kamu."</blockquote>
+    </div>
+    <div class="editorial-col">
+      <div class="ec-tag">Consumer Intelligence</div>
+      <h3 class="ec-title">Bicara dalam bahasa emosi, bukan deskripsi warna</h3>
+      <p class="ec-body">"Sage green yang fresh" tidak bicara ke otak emosional konsumen. "Warna yang bikin kamu merasa tenang di hari yang chaos" — itu yang langsung relevan dan menggerakkan keputusan beli.</p>
+      <blockquote class="ec-quote">Warna dipilih pertama-tama karena bagaimana ia membuat seseorang merasa, bukan bagaimana ia terlihat di foto produk.</blockquote>
+    </div>
+    <div class="editorial-col">
+      <div class="ec-tag">Retail Opportunity</div>
+      <h3 class="ec-title">Ada peluang besar di personalisasi berbasis warna</h3>
+      <p class="ec-body">Perpaduan antara Personal Color Analysis dan fashion retail digital masih sangat underexplored di Indonesia. Tools personalisasi warna bisa menjadi differentiator yang nyata bagi brand lokal.</p>
+      <blockquote class="ec-quote">Brand lokal punya keunggulan yang tidak bisa ditiru brand global: kedekatan dengan komunitas nyata.</blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<div class="manifesto-band">
+  <div class="manifesto-eyebrow">Tentang The Dossier Indonesia</div>
+  <p class="manifesto-text">"Platform intelijen budaya yang mengubah riset akademis menjadi produk strategis bernilai tinggi untuk industri fashion dan lifestyle."</p>
+  <p class="manifesto-body">Kami percaya bahwa riset akademis terbaik seharusnya tidak berhenti di lemari arsip kampus. The Dossier Indonesia menjembatani dunia riset dan dunia industri — mengubah data menjadi strategi, dan teori menjadi aksi nyata.</p>
+  <div class="manifesto-services">
+    <div class="ms-item">
+      <span class="ms-num">01</span>
+      <span class="ms-label">Discover</span>
+    </div>
+    <div class="ms-item">
+      <span class="ms-num">02</span>
+      <span class="ms-label">Define</span>
+    </div>
+    <div class="ms-item">
+      <span class="ms-num">03</span>
+      <span class="ms-label">Activate</span>
+    </div>
+    <div class="ms-item">
+      <span class="ms-num">04</span>
+      <span class="ms-label">Own</span>
+    </div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="methodology-section">
+  <div class="method-left">
+    <div class="method-eyebrow">Metodologi Riset</div>
+    <h2 class="method-title">Bagaimana Kami<br>Membangun Intelijen</h2>
+    <p class="method-body">The Dossier Indonesia tidak memproduksi konten spekulatif. Setiap artikel lahir dari riset yang terstruktur, divalidasi secara akademis, dan ditransformasi menjadi wawasan yang actionable untuk para pelaku industri fashion dan lifestyle di Indonesia.</p>
+    <div class="method-phases">
+      <div class="phase-card">
+        <div class="phase-num">Phase 01</div>
+        <div class="phase-name">Discover</div>
+        <div class="phase-desc">Identifikasi penelitian akademis yang relevan dengan tantangan industri saat ini</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 02</div>
+        <div class="phase-name">Define</div>
+        <div class="phase-desc">Ekstraksi temuan utama dan research gap yang memiliki implikasi strategis tinggi</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 03</div>
+        <div class="phase-name">Activate</div>
+        <div class="phase-desc">Transformasi editorial — dari bahasa akademis ke bahasa industri yang kuat</div>
+      </div>
+      <div class="phase-card">
+        <div class="phase-num">Phase 04</div>
+        <div class="phase-name">Own</div>
+        <div class="phase-desc">Distribusi kepada brand, buyer, desainer, dan decision maker di industri</div>
+      </div>
+    </div>
+  </div>
+  <div class="method-right">
+    <h3 class="method-right-title">Topik yang Kami Kawal</h3>
+    <div class="industry-tag-cloud">
+      <span class="itag active">Consumer Behavior</span>
+      <span class="itag">Brand Identity</span>
+      <span class="itag">Color Psychology</span>
+      <span class="itag">Retail Strategy</span>
+      <span class="itag">Cultural Intelligence</span>
+      <span class="itag">Trend Forecasting</span>
+      <span class="itag">Sustainability</span>
+      <span class="itag">Digital Commerce</span>
+      <span class="itag">Community Building</span>
+      <span class="itag">Luxury Positioning</span>
+      <span class="itag">Fashion Education</span>
+      <span class="itag">ASEAN Markets</span>
+    </div>
+    <div class="method-quote">
+      <p>"Color analysis adalah tentang amplifikasi, bukan perubahan. Peran kami adalah menemukan image asli seseorang melalui fitur natural mereka, lalu memperkuatnya."</p>
+      <cite>— Rara Mispawanti, Image &amp; Color Consultant · Narasumber Ahli, Riset Madeline Gabriella 2025</cite>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-d">d.</div>
+      <div class="footer-logo-name">The Dossier Indonesia</div>
+      <p class="footer-tagline">Cultural Intelligence &amp; Research Lab.<br>Dari ruang riset, untuk industri.</p>
+      <a href="mailto:hello@thedossier.id" class="footer-email">hello@thedossier.id</a>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Intelligence</div>
+      <ul class="footer-links">
+        <li><a href="#">Consumer Reports</a></li>
+        <li><a href="#">Brand Intelligence</a></li>
+        <li><a href="#">Color &amp; Identity</a></li>
+        <li><a href="#">Trend Analysis</a></li>
+        <li><a href="#">Cultural Insight</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-links">
+        <li><a href="#">Tentang Kami</a></li>
+        <li><a href="#">Methodology</a></li>
+        <li><a href="#">Research Partners</a></li>
+        <li><a href="#">Contribute</a></li>
+        <li><a href="#">Subscribe</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="#">Brand Intelligence Brief</a></li>
+        <li><a href="#">Consumer Deep Dive</a></li>
+        <li><a href="#">Cultural Trend Report</a></li>
+        <li><a href="#">Strategy Workshop</a></li>
+        <li><a href="#">Custom Research</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 The Dossier Indonesia. Cultural Intelligence &amp; Research Lab.</span>
+    <span class="footer-atelier">Bagian dari ekosistem <a href="#">Atelier Augusto</a></span>
+  </div>
+</footer>
+
+<!-- ═══════ ARTICLE OVERLAY ═══════ -->
+<div class="article-overlay" id="articleOverlay1">
+  <div class="overlay-bg" onclick="closeArticle(1)"></div>
+  <div class="article-panel">
+    <div class="panel-header">
+      <div class="panel-header-logo">d<span>.</span> The Dossier Indonesia</div>
+      <div class="panel-meta-top">
+        <span>Volume I · Artikel 01</span>
+        <span>·</span>
+        <span>Consumer Psychology</span>
+      </div>
+      <button class="panel-close" onclick="closeArticle(1)">
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="panel-body">
+      <div class="article-container">
+
+        <div class="article-header">
+          <div class="ah-category">Consumer Psychology · Fashion Intelligence · Brand Strategy</div>
+          <h1 class="ah-title">Warna Bukan Soal Tren</h1>
+          <p class="ah-subtitle">Mengapa perempuan milenial Jakarta memilih warna bukan dari runway, tapi dari dalam diri mereka sendiri.</p>
+          <div class="ah-meta-bar">
+            <span class="ahm-author">Madeline Gabriella</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-detail">FM08I2022 · LaSalle College Jakarta</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-detail">Tahun Riset: 2025</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-tag">Vol. I · Artikel 01</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-detail">Pembimbing: Dino Augusto, S.E., M.A.</span>
+          </div>
+        </div>
+
+        <!-- 01 -->
+        <div class="article-section">
+          <div class="as-num">01 —</div>
+          <h2 class="as-title">Ada yang Salah Dengan Cara Kita Membaca Konsumen</h2>
+          <div class="as-body">
+            <p>Coba bayangkan sebentar. Kamu bekerja di sebuah brand fashion lokal. Tim kamu sudah meriset tren, mengikuti laporan Pantone, melihat apa yang keluar di runway Paris dan Seoul. Musim ini warnanya sage green dan dusty rose. Kamu luncurkan koleksi dengan keyakinan penuh.</p>
+            <p>Tapi sesuatu tidak klik.</p>
+            <p>Konsumen kamu yang paling loyal — perempuan milenial usia 28 sampai 38 tahun, aktif di Jakarta, punya selera yang jelas — masih terus balik ke hitam. Ke navy. Ke warna-warna netral yang kamu anggap "aman" dan "membosankan." Padahal kamu sudah menyajikan pilihan yang lebih menarik, lebih tren, lebih segar.</p>
+            <p>Kenapa?</p>
+            <p>Ini bukan soal mereka kurang update. Bukan soal mereka takut eksplorasi. Ada sesuatu yang jauh lebih dalam yang sedang terjadi di balik pilihan itu — dan itulah yang ingin dibongkar oleh riset Madeline Gabriella.</p>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 02 -->
+        <div class="article-section">
+          <div class="as-num">02 —</div>
+          <h2 class="as-title">Apa yang Sudah Kita Tahu (dan Apa yang Belum)</h2>
+          <div class="as-body">
+            <p>Psikologi warna sebenarnya sudah dipelajari cukup dalam secara ilmiah. Kita tahu bahwa warna bukan sekadar informasi visual — ia masuk ke sistem limbik otak, sistem yang mengolah emosi dan memori. Merah meningkatkan detak jantung. Biru menenangkan. Ini bukan sekadar feeling; ini adalah respons biologis yang terukur.</p>
+            <p>Kita juga tahu bahwa warna tidak bermakna sama di seluruh dunia. Merah bisa berarti keberanian, tapi juga bahaya. Di satu budaya ia simbol keberuntungan, di budaya lain ia simbol duka. Merek-merek besar sudah lama memahami ini — brand mewah bermain di hitam, emas, dan navy untuk menyampaikan eksklusivitas. Fast fashion justru memilih warna cerah dan berganti-ganti untuk bicara tentang keterjangkauan dan kecepatan.</p>
+            <p>Lalu ada Personal Color Analysis, atau PCA — sistem yang mengkategorikan seseorang ke dalam "musim" berdasarkan tone kulit, warna mata, dan rambutnya. Spring. Summer. Autumn. Winter. Masing-masing punya palet yang disebut paling "flattering." Metode ini sudah ada sejak 1980-an, dan sekarang viral lagi di TikTok dalam format yang lebih mudah dicerna.</p>
+            <p>Tapi semua teori ini lahir dari konteks Barat. Dari studi yang dilakukan di Eropa, Amerika, atau Asia Timur. Tidak ada yang benar-benar masuk ke Jakarta — kota tropis, kosmopolitan, dengan keberagaman etnis yang luar biasa dan dinamika perkotaan yang unik. Apakah perempuan milenial di Jakarta mengikuti logika yang sama? Riset Madeline hadir untuk menjawab itu.</p>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 03 -->
+        <div class="article-section">
+          <div class="as-num">03 —</div>
+          <h2 class="as-title">Bagaimana Riset Ini Dilakukan</h2>
+          <div class="as-body">
+            <p>Madeline tidak memilih survei besar-besaran dengan ratusan responden. Dia memilih jalan yang lebih sempit tapi lebih dalam: wawancara mendalam dengan delapan orang.</p>
+            <p>Tujuh di antaranya adalah konsumen aktif <em>Arus the Brand</em> — sebuah brand fashion lokal Bali yang bermain di estetika minimalis dengan palet netral: hitam, charcoal, sage, smoke, cloud, powder. Brand ini dipilih bukan sembarangan. Justru karena paletnya yang "tenang" itulah konteksnya menjadi menarik — bagaimana konsumen berinteraksi dengan warna-warna yang secara sengaja tidak berteriak?</p>
+            <p>Profil tujuh konsumen ini beragam: ada yang bekerja sebagai marketing lead di industri kreatif, ada banker sekaligus content creator, TV host, corporate secretary, entrepreneur, ibu rumah tangga. Semua perempuan, semua milenial, semua pernah membeli dan memakai produk Arus. Satu partisipan kedelapan adalah ahli analisis warna profesional — Image &amp; Color Consultant yang aktif berpraktik.</p>
+            <p>Wawancara berlangsung antara Juli hingga Agustus 2025, via Zoom dan Google Meet. Data yang terkumpul kemudian dianalisis lewat tiga lensa: <em>content analysis</em>, <em>narrative analysis</em>, dan kerangka Miles &amp; Huberman yang memastikan prosesnya sistematis dan bisa dipertanggungjawabkan.</p>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 04 -->
+        <div class="article-section">
+          <div class="as-num">04 —</div>
+          <h2 class="as-title">Apa yang Mereka Temukan</h2>
+          <div class="as-body"><p>Dari seluruh wawancara itu, muncul enam pola besar. Bukan teori — tapi narasi nyata dari perempuan yang berbicara jujur tentang bagaimana mereka memilih warna setiap harinya.</p></div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 01</div>
+            <div class="fb-title">Budaya itu titik awal, bukan aturan main</div>
+            <div class="fb-body">Hampir semua partisipan mengakui bahwa warna pertama kali diperkenalkan ke mereka lewat keluarga dan budaya. Tapi pengaruh itu tidak permanen. Seiring mereka pindah kota, masuk dunia kerja, membangun identitas sendiri, palet mereka bergeser.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Saya orang Batak, dan orang Batak sering pakai warna kuat seperti merah. Tapi belakangan, lingkungan saya — tinggal di Bekasi, kuliah di Surabaya — yang lebih banyak membentuk saya."</blockquote>
+            <cite>— Partisipan · Marketing Lead, Industri Kreatif</cite>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 02</div>
+            <div class="fb-title">Kulit adalah filter paling jujur</div>
+            <div class="fb-body">Ini temuan yang paling kuat dan paling konsisten. Semua partisipan — tanpa terkecuali — memiliki sistem evaluasi warna yang berbasis langsung pada bagaimana warna berinteraksi dengan kulit mereka. Dan sistem ini tidak mereka pelajari dari buku. Mereka temukan lewat trial and error, lewat momen di depan cermin.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Karena kulit saya cukup pucat, saya biasanya menghindari warna cerah karena membuat saya terlihat terlalu 'bubbly'. Warna gelap memberi kontras dan membuat saya merasa powerful."</blockquote>
+            <cite>— Partisipan · Corporate Secretary</cite>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Wajah saya jadi terlihat lebih gelap. Meskipun saya suka modelnya, saya tidak pernah memakainya lagi."</blockquote>
+            <cite>— Partisipan · Entrepreneur</cite>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 03</div>
+            <div class="fb-title">Warna adalah alat psikologis, bukan hanya estetis</div>
+            <div class="fb-body">Konsumen milenial Jakarta tidak memilih warna semata karena ingin terlihat bagus. Mereka memilih warna untuk <em>merasa</em> sesuatu. Warna gelap berfungsi sebagai armor. Warna terang sebagai energizer. Ini benar-benar strategi psikologis yang mereka jalankan secara sadar, setiap hari.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Kalau saya merasa sedih atau tidak percaya diri, saya akan pakai sesuatu yang gelap seperti hitam atau navy. Itu membuat saya merasa powerful dan mengubah mood sepanjang hari."</blockquote>
+            <cite>— Partisipan · Banker &amp; Content Creator</cite>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Hitam selalu jadi zona nyaman saya. Saya merasa terlindungi saat memakainya — seperti saya tidak perlu khawatir kalau orang menghakimi saya."</blockquote>
+            <cite>— Partisipan · TV Host</cite>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 04</div>
+            <div class="fb-title">Tren itu menu, bukan resep</div>
+            <div class="fb-body">Tidak ada satu pun partisipan yang mengikuti tren secara buta. Semua menunjukkan pola yang sama: tren diperhatikan, dicoba, lalu disaring. Ini bukan sikap anti-tren. Ini adalah kedewasaan konsumsi — mereka <em>aware</em> dengan apa yang sedang ramai, tapi punya standar yang lebih personal.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Kalau pastel lagi tren, saya akan coba — tapi kalau tidak cocok di saya, saya tidak akan memaksa."</blockquote>
+            <cite>— Partisipan · Ibu Rumah Tangga</cite>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 05</div>
+            <div class="fb-title">Tempat dan situasi menentukan warna yang "boleh" hadir</div>
+            <div class="fb-body">Warna yang sama bisa sepenuhnya berbeda maknanya tergantung di mana ia dipakai. Di kantor korporat, hitam dan navy adalah pilihan yang "aman" dan "serius." Di acara keluarga atau perayaan, warna yang lebih hidup mendapat izin masuk. Preferensi warna bukan karakter yang fixed — ia adalah alat yang digunakan sesuai kebutuhan.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Di kantor, saya biasanya pakai warna gelap atau netral seperti navy atau hitam, karena terlihat lebih formal dan aman."</blockquote>
+            <cite>— Partisipan · Corporate Secretary</cite>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 06</div>
+            <div class="fb-title">Netral bukan kompromi — itu fondasi</div>
+            <div class="fb-body">Hampir seluruh partisipan secara organik membangun lemari pakaian di atas warna-warna netral. Bukan karena tidak berani bereksperimen, tapi karena logika yang sangat praktis: warna netral mudah dipadukan, tahan lama secara visual, dan tidak membutuhkan pembelian impulsif setiap musim berganti.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Saya berusaha membeli pakaian yang tahan lama dan bisa dipadukan dengan banyak outfit, sehingga saya tidak perlu sering belanja."</blockquote>
+            <cite>— Partisipan · Entrepreneur</cite>
+          </div>
+
+          <div class="as-divider"></div>
+          <div class="as-body">
+            <p>Perspektif dari dalam brand mengkonfirmasi banyak hal. CEO Arus bercerita bahwa hitam adalah warna yang paling laris dan paling konsisten sepanjang waktu — <em>"paling netral, paling versatil, paling disukai semua orang."</em> Dan powder pink masuk ke koleksi bukan dari tren global — tapi dari permintaan berulang pelanggan saat offline event.</p>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Saya tidak pernah mencoba mengubah image seseorang. Peran saya adalah menemukan image asli mereka melalui fitur natural mereka, lalu memperkuatnya. Color analysis adalah tentang amplifikasi, bukan perubahan."</blockquote>
+            <cite>— Rara Mispawanti · Image &amp; Color Consultant, Narasumber Ahli</cite>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 05 -->
+        <div class="article-section">
+          <div class="as-num">05 —</div>
+          <h2 class="as-title">Yang Masih Belum Terjawab</h2>
+          <div class="as-body"><p>Riset ini berhasil membangun peta yang sangat solid. Tapi justru dari kekuatannya, muncul pertanyaan-pertanyaan baru — dan ini bukan kelemahan, ini undangan untuk riset berikutnya.</p></div>
+          <ul class="gap-list">
+            <li><span class="gl-num">i.</span><span><strong>Bagaimana dengan Gen Z?</strong> Seluruh partisipan berusia 28–38 tahun. Generasi yang tumbuh dengan TikTok, micro-trend, dan aesthetic-driven content kemungkinan punya dinamika yang sangat berbeda.</span></li>
+            <li><span class="gl-num">ii.</span><span><strong>Bagaimana dengan luar Jakarta?</strong> Yogyakarta, Medan, Makassar, Bali — masing-masing punya konteks budaya, iklim, dan norma sosial yang berbeda. Apakah pola ini universal untuk konsumen urban Indonesia?</span></li>
+            <li><span class="gl-num">iii.</span><span><strong>Bagaimana dengan laki-laki dan non-binary?</strong> Semua partisipan dalam studi ini perempuan. Apakah ekspektasi sosial tentang maskulinitas membatasi cara laki-laki bereksperimen dengan warna?</span></li>
+            <li><span class="gl-num">iv.</span><span><strong>Bagaimana perubahan ini terjadi dari waktu ke waktu?</strong> Tidak ada studi yang secara sistematis melacak evolusi preferensi warna seseorang selama satu dekade penuh.</span></li>
+            <li><span class="gl-num">v.</span><span><strong>Seberapa besar dampak terukur dari PCA?</strong> Secara kuantitatif, berapa persen konsumen yang sudah pernah menjalani sesi PCA kemudian mengubah perilaku belanjanya secara nyata?</span></li>
+          </ul>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 06 -->
+        <div class="article-section">
+          <div class="as-num">06 —</div>
+          <h2 class="as-title">Apa Artinya Ini untuk Industri?</h2>
+          <div class="as-body"><p>Kalau kamu bekerja di brand fashion, sebagai desainer, marketer, buyer, atau founder — ada beberapa hal dari riset ini yang layak kamu bawa pulang.</p></div>
+          <div class="implication-grid">
+            <div class="impl-card">
+              <div class="impl-num">01</div>
+              <div class="impl-title">Tren bukan keputusan</div>
+              <div class="impl-body">Brand yang bisa menjawab "ini cocok dengan siapa kamu" akan selalu menang atas brand yang hanya berteriak "ini sedang tren."</div>
+            </div>
+            <div class="impl-card">
+              <div class="impl-num">02</div>
+              <div class="impl-title">Netral adalah aset strategis</div>
+              <div class="impl-body">Bagi konsumen, netral adalah investasi — mereka beli karena yakin akan terus dipakai. Loyalitas yang jauh lebih dalam dari pembelian impulsif.</div>
+            </div>
+            <div class="impl-card">
+              <div class="impl-num">03</div>
+              <div class="impl-title">Bicara bahasa emosi</div>
+              <div class="impl-body">"Sage green yang fresh" tidak bicara ke otak emosional. "Warna yang bikin kamu tenang di hari chaos" — itu yang menggerakkan keputusan beli.</div>
+            </div>
+            <div class="impl-card">
+              <div class="impl-num">04</div>
+              <div class="impl-title">Personalisasi berbasis warna</div>
+              <div class="impl-body">Perpaduan PCA dan fashion retail digital masih sangat underexplored. Tools personalisasi warna bisa menjadi differentiator nyata di Indonesia.</div>
+            </div>
+            <div class="impl-card" style="grid-column: 1 / -1;">
+              <div class="impl-num">05</div>
+              <div class="impl-title">Komunitas lebih jujur dari data tren global</div>
+              <div class="impl-body">Powder pink masuk ke koleksi Arus bukan karena laporan WGSN. Ia masuk karena pelanggan berulang kali memintanya saat ketemu langsung. Di sinilah brand lokal punya keunggulan yang tidak bisa ditiru brand global: kedekatan dengan komunitas nyata.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-footer-credit">
+          <div class="afc-label">Tentang Artikel Ini</div>
+          <p class="afc-text">Artikel ini adalah hasil transformasi editorial dari skripsi: <strong>Madeline Gabriella</strong>, "The Role of Color Psychology in Shaping Millennial Consumer Preferences: A Case Study of Arus the Brand" (LaSalle College Jakarta, 2025). Dibimbing oleh <strong>Dino Augusto, S.E., M.A.</strong> Diuji oleh Gracyamanda Hutabarat S.Sos., MBA · Winna Natashia Widjanarso S.Sn., M.Des. · Richard Kaunang S.E., M.A. Diterbitkan oleh <strong>The Dossier Indonesia</strong> sebagai bagian dari misi menerjemahkan riset akademis fashion menjadi wawasan yang bisa langsung digunakan oleh industri.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ ARTICLE OVERLAY 2 ═══════ -->
+<div class="article-overlay" id="articleOverlay2">
+  <div class="overlay-bg" onclick="closeArticle(2)"></div>
+  <div class="article-panel">
+    <div class="panel-header">
+      <div class="panel-header-logo">d<span>.</span> The Dossier Indonesia</div>
+      <div class="panel-meta-top">
+        <span>Volume I · Artikel 02</span>
+        <span>·</span>
+        <span>Digital Strategy · Luxury Branding</span>
+      </div>
+      <button class="panel-close" onclick="closeArticle(2)">
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </button>
+    </div>
+    <div class="panel-body">
+      <div class="article-container">
+
+        <div class="article-header">
+          <div class="ah-category">Digital Strategy · Luxury Branding · Gen Z · Semiotics</div>
+          <h1 class="ah-title">Kenapa Gen Z Jakarta Suka Nonton Jacquemus di TikTok — Tapi Belum Tentu Beli?</h1>
+          <p class="ah-subtitle">Short-form storytelling membangun admiration luar biasa, tapi format 15 detik punya batas yang jelas.</p>
+          <div class="ah-meta-bar">
+            <span class="ahm-author">Samantha Keira Sahuri</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-detail">FM01I2022 · LaSalle College Jakarta</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-detail">Tahun Riset: 2025</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-tag">Vol. I · Artikel 02</span>
+            <div class="ahm-sep"></div>
+            <span class="ahm-detail">Pembimbing: Dino Augusto, S.E., M.A.</span>
+          </div>
+        </div>
+
+        <!-- 01 -->
+        <div class="article-section">
+          <div class="as-num">01 —</div>
+          <h2 class="as-title">Viral Tapi Tidak Beli: Paradoks Luxury di TikTok</h2>
+          <div class="as-body">
+            <p>Jacquemus bukan brand luxury biasa. Di TikTok, mereka posting video tas Bambino jalan-jalan pakai remote control di jalanan Paris. Mereka syuting campaign di ladang gandum, bukan di studio. Mereka pakai Central Cee dan Nicholas Chaves, bukan model runway tradisional. Dan Gen Z — terutama yang di Jakarta — makan semua itu. Scroll, like, save, share. Tapi ada satu hal yang aneh: mereka tetap tidak beli. Kontennya viral, brand-nya dikagumi, tapi konversi ke pembelian nyaris tidak terjadi. Pertanyaannya: kalau storytelling sependek 15 detik bisa membentuk persepsi brand sekuat itu, kenapa hasilnya berhenti di admiration dan belum sampai ke loyalty — apalagi transaksi?</p>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 02 -->
+        <div class="article-section">
+          <div class="as-num">02 —</div>
+          <h2 class="as-title">Apa yang Sudah Diketahui dan Belum</h2>
+          <div class="as-body">
+            <p>Kita sudah tahu beberapa hal. Short-form video di TikTok memang powerful untuk brand awareness — algoritma-nya mendorong discovery, bukan retention. Riset Hammar & Johansson (2024) sudah membuktikan bahwa video pendek di social media bisa membentuk persepsi brand melalui tiga mekanisme: gratifikasi psikologis (kenapa orang nonton), kualitas hubungan brand-konsumen (seberapa dalam koneksinya), dan semiotika (tanda-tanda visual dan audio yang membentuk makna).</p>
+            <p>Yang juga sudah diketahui: Gen Z adalah generasi yang mengkonsumsi konten secara entertainment-first. Mereka tidak membuka TikTok untuk belanja — mereka membuka TikTok untuk terhibur, terinspirasi, dan merasa belong. Jacquemus memahami ini dan membangun strategi konten yang bermain di wilayah itu.</p>
+            <p>Yang belum terjawab — dan ini gap kritis-nya — adalah bagaimana mekanisme ini bekerja secara spesifik di konteks Gen Z Jakarta. Apakah estetika French countryside Jacquemus benar-benar relatable untuk anak muda di Blok M dan Senopati? Apakah "approachable luxury" yang mereka proyeksikan di TikTok bisa menembus batas budaya dan daya beli konsumen Indonesia? Dan yang paling penting: kalau engagement tinggi tapi konversi rendah, di mana tepatnya funnel itu putus?</p>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 03 -->
+        <div class="article-section">
+          <div class="as-num">03 —</div>
+          <h2 class="as-title">Bagaimana Riset Ini Dilakukan</h2>
+          <div class="as-body">
+            <p>Peneliti mewawancarai 7 orang secara mendalam — 6 konsumen Gen Z (usia 18-25, tinggal di Jakarta, familiar dengan Jacquemus, aktif di TikTok) dan 1 expert dari industri fashion (Cempaka Asriani, CEO Sare Studio dan dosen fashion business di LaSalle Jakarta). Responden konsumen termasuk mahasiswa komunikasi, content creator TikTok, social media ambassador, fashion student, assistant designer, dan staf PR & marketing — orang-orang yang punya literasi fashion dan digital di atas rata-rata.</p>
+            <p>Sebelum wawancara, setiap responden dipaparkan 73 video TikTok dari campaign La Croisière 2025 milik Jacquemus — lalu diminta menceritakan reaksi mereka secara bebas. Wawancara berlangsung 30-60 menit, sepanjang Juli-Agustus 2025. Data dianalisis menggunakan narrative analysis, discourse analysis, dan Miles & Huberman data reduction, lalu ditriangulasi dengan perspektif expert.</p>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 04 -->
+        <div class="article-section">
+          <div class="as-num">04 —</div>
+          <h2 class="as-title">Apa yang Ditemukan</h2>
+          <div class="as-body"><p>Temuan utamanya bisa dirangkum dalam satu kalimat paradoks: Jacquemus berhasil membuat Gen Z Jakarta jatuh cinta dengan brand-nya — tapi cintanya berhenti di level visual dan emosional, tidak sampai ke behavioral loyalty.</p></div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 01</div>
+            <div class="fb-title">TikTok Jacquemus = Entertainment dulu, brand kedua</div>
+            <div class="fb-body">Semua responden sepakat bahwa mereka menonton konten Jacquemus primarily untuk hiburan dan kesenangan visual — bukan untuk mencari informasi produk atau niat beli. Kata-kata yang muncul berulang: "refreshing," "fun," "aesthetically pleasing."</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Mostly for refreshing the eyes… it's just so nice to see you know, kayak refreshing aja gitu." — Participant 3 · Full-time Content Creator, TikTok</blockquote>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 02</div>
+            <div class="fb-title">Koneksi emosional ada, tapi dangkal</div>
+            <div class="fb-body">Responden merasa terhibur, terinspirasi, bahkan nostalgic saat menonton video Jacquemus. Tapi format TikTok yang pendek (5-15 detik) membuat koneksi ini tidak sempat mendalam. Untuk koneksi emosional yang lebih kuat, mereka beralih ke YouTube atau campaign film versi panjang.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"To be honest, watching their TikTok didn't really hit me emotionally. Why? Because it was so fast. The duration was only about 15 or 5 seconds, and I even skipped some of them." — Participant 4 · PR & Marketing, Tory Burch</blockquote>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 03</div>
+            <div class="fb-title">Semiotika bekerja sangat efektif — tapi secara bawah sadar</div>
+            <div class="fb-body">Responden sangat tertarik pada pilihan warna, lokasi syuting yang unexpected, props quirky, dan minimnya teks promosi. Elemen-elemen ini membentuk persepsi Jacquemus sebagai brand yang membuat luxury terasa playful — positioning unik di antara luxury houses lain. Responden juga mencatat strategi audio dua lapis: viral sounds untuk reach di FYP, dan French-inspired tracks untuk video brand-centric.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"There are two sides to the audio that I noticed. First, they're playing with viral sounds that are obviously trending on the FYP. The second is for videos that showcase more about the brand, where they use French-style music that really represents Jacquemus." — Participant 4 · PR & Marketing, Tory Burch</blockquote>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 04</div>
+            <div class="fb-title">Aspirational tapi belum actionable</div>
+            <div class="fb-body">Hampir semua responden mengekspresikan keinginan untuk memiliki produk Jacquemus — tapi sebagai mimpi masa depan, bukan rencana pembelian. Brand ini berhasil masuk ke "fashion imagination" Gen Z Jakarta, tapi harga dan daya beli masih menjadi barrier utama.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Of course I would want to purchase Jacquemus one day, but not now… it's something for the future." — Participant 2 · Social Media Ambassador, University of Essex</blockquote>
+          </div>
+
+          <div class="finding-block">
+            <div class="fb-heading">Temuan 05</div>
+            <div class="fb-title">Resonansi terbatas pada niche, bukan mass market</div>
+            <div class="fb-body">Baik responden maupun expert sepakat: estetika Jacquemus di TikTok beresonansi kuat dengan subkultur fashion-conscious di Jakarta — mahasiswa fashion, anak Blok M, creative community — tapi tidak dengan mainstream. Indonesia's TikTok user base didominasi segmen B-C, di mana konten surreal dan playful ala Jacquemus kurang relevan.</div>
+          </div>
+          <div class="article-quote">
+            <blockquote>"If we're talking about a more specific correlation between the campaigns and the Jakarta market, for example, people from areas like Blok M and so on, I think this type of content really resonates with them." — Participant 4 · PR & Marketing, Tory Burch</blockquote>
+          </div>
+
+          <div class="as-divider"></div>
+          <div class="as-body">
+            <p>Perspektif expert mengkonfirmasi temuan ini. Cempaka Asriani menegaskan bahwa TikTok pada dasarnya adalah platform entertainment — bukan selling tool. Untuk luxury brand, TikTok berfungsi sebagai branding support, bukan sales driver. Yang penting adalah memberikan aspirasi, bukan mendorong transaksi. Karena suatu hari ketika Gen Z sudah punya daya beli, Jacquemus akan menjadi top of mind.</p>
+          </div>
+          <div class="article-quote">
+            <blockquote>"Even though they may not have the money yet, it is very important to provide them with aspirations, so one day when they are ready to make a purchase, they will have Jacquemus top of mind." — Cempaka Asriani · CEO Sare Studio, Fashion Lecturer LaSalle Jakarta</blockquote>
+          </div>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 05 -->
+        <div class="article-section">
+          <div class="as-num">05 —</div>
+          <h2 class="as-title">Yang Masih Belum Terjawab</h2>
+          <div class="as-body"><p>Di sinilah hal-hal mulai menarik buat siapa pun yang bekerja di branding, luxury marketing, atau digital strategy di Southeast Asia:</p></div>
+          <ul class="gap-list">
+            <li><span class="gl-num">i.</span><span><strong>Cross-platform conversion pathway</strong> — Riset ini membuktikan TikTok adalah entry point yang kuat tapi bukan loyalty builder. Yang belum dijawab: bagaimana journey dari "nonton di TikTok" ke "engage lebih dalam di Instagram/YouTube" ke "akhirnya beli" bekerja untuk luxury brand di Indonesia?</span></li>
+            <li><span class="gl-num">ii.</span><span><strong>Longitudinal impact on purchasing</strong> — Semua responden bilang mereka ingin beli "suatu hari nanti." Tapi apakah paparan TikTok yang konsisten benar-benar mempercepat konversi ketika daya beli meningkat? Belum ada data longitudinal.</span></li>
+            <li><span class="gl-num">iii.</span><span><strong>Cultural localization vs global consistency</strong> — Apakah ada sweet spot di mana brand bisa tetap "globally aspirational" sambil menyisipkan cultural cues lokal — tanpa kehilangan identitas? Tidak ada brand luxury yang sudah crack this code di Southeast Asia.</span></li>
+            <li><span class="gl-num">iv.</span><span><strong>Semiotic effectiveness across socioeconomic segments</strong> — Semua responden fashion-literate. Bagaimana pembacaan semiotik berubah ketika audiensnya Gen Z dari segmen ekonomi dan literasi fashion yang berbeda?</span></li>
+            <li><span class="gl-num">v.</span><span><strong>Comparative luxury brand strategies on TikTok</strong> — Bagaimana strategi Jacquemus dibandingkan Loewe, Marc Jacobs, atau Bottega Veneta? Siapa yang paling efektif mengkonversi awareness ke loyalty?</span></li>
+          </ul>
+        </div>
+        <div class="as-divider"></div>
+
+        <!-- 06 -->
+        <div class="article-section">
+          <div class="as-num">06 —</div>
+          <h2 class="as-title">Apa yang Bisa Dilakukan Sekarang</h2>
+          <div class="as-body"></div>
+          <div class="implication-grid">
+            <div class="impl-card">
+              <div class="impl-num">01</div>
+              <div class="impl-title">TikTok = Top of Funnel</div>
+              <div class="impl-body">Perlakukan TikTok sebagai awareness tool, bukan loyalty builder. Desain "exit ramps" yang jelas ke YouTube, Instagram, dan website untuk deeper engagement dan conversion.</div>
+            </div>
+            <div class="impl-card">
+              <div class="impl-num">02</div>
+              <div class="impl-title">Estetika global ≠ otomatis translatable</div>
+              <div class="impl-body">Konten yang bekerja di Paris belum tentu beresonansi di Jakarta. Tambahkan layer lokal — kolaborasi dengan creator lokal yang punya kredibilitas di subkultur fashion Jakarta.</div>
+            </div>
+            <div class="impl-card">
+              <div class="impl-num">03</div>
+              <div class="impl-title">Dual audio strategy</div>
+              <div class="impl-body">Setiap konten TikTok harus punya fungsi jelas: viral sounds untuk reach, atau curated tracks untuk brand depth. Jangan campur kedua objective dalam satu video.</div>
+            </div>
+            <div class="impl-card">
+              <div class="impl-num">04</div>
+              <div class="impl-title">Ukur yang benar</div>
+              <div class="impl-body">Stop mengukur TikTok dari direct sales. Untuk luxury yang menarget Gen Z, metrik yang relevan: brand salience, aspiration index, dan cross-platform migration rate.</div>
+            </div>
+            <div class="impl-card" style="grid-column: 1 / -1;">
+              <div class="impl-num">05</div>
+              <div class="impl-title">Investasi di aspirational content</div>
+              <div class="impl-body">Gen Z belum beli sekarang, tapi mereka sedang membangun "wish list" masa depan. Brand yang konsisten hadir di imajinasi fashion mereka hari ini akan menjadi pilihan pertama ketika daya beli mereka naik.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="article-footer-credit">
+          <div class="afc-label">Tentang Artikel Ini</div>
+          <p class="afc-text">Artikel ini adalah hasil transformasi editorial dari skripsi: <strong>Samantha Keira Sahuri</strong>, "Exploring the Role of Short-Form Storytelling and Understanding Gen Z Brand Perception: A Case Study of Jacquemus' TikTok Campaign" (LaSalle College Jakarta, 2025). Dibimbing oleh <strong>Dino Augusto, S.E., M.A.</strong> Diterbitkan oleh <strong>The Dossier Indonesia</strong> sebagai bagian dari misi menerjemahkan riset akademis fashion menjadi wawasan yang bisa langsung digunakan oleh industri.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openArticle(num) {
+    var id = 'articleOverlay' + (num || 1);
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeArticle(num) {
+    var id = 'articleOverlay' + (num || 1);
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeArticle(1);
+      closeArticle(2);
+    }
+  });
+  document.querySelectorAll('.itag').forEach(function(tag) {
+    tag.addEventListener('click', function() {
+      document.querySelectorAll('.itag').forEach(function(t) { t.classList.remove('active'); });
+      this.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
